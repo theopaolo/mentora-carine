@@ -1,0 +1,14 @@
+.initialButton {
+    background-color: blue;
+    color: white;
+}
+
+.ongoingButton {
+    background-color: gray;
+    color: white;
+}
+
+.finishedButton {
+    background-color: green;
+    color: white;
+}

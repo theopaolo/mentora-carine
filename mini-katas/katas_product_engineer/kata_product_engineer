@@ -1,0 +1,101 @@
+# Product engineer Kata
+
+### Kata 1 : Le "Clarificateur de Bouton" (Focus : UX & Prise de décision)
+
+**Le Problème Produit :** Sur de nombreux sites, on clique sur un bouton et on ne sait pas si quelque chose se passe. L'utilisateur clique alors plusieurs fois, ce qui peut causer des bugs (par exemple, envoyer un formulaire 4 fois).
+
+**Votre Mission :** Créer une petite page web avec un bouton qui simule l'envoi de données. Lorsque l'on clique, le bouton doit donner un retour visuel immédiat à l'utilisateur pour lui faire comprendre qu'une action est en cours et qu'il doit patienter.
+
+**Étapes (20 minutes) :**
+
+1. **Phase "Design" (5 min) :**
+    - Prenez une feuille de papier ou ouvrez un éditeur de texte simple.
+    - Décrivez ce que l'utilisateur doit voir. Quelles sont les 3 étapes de vie du bouton ?
+        1. État initial (ex: "Envoyer ma demande")
+        2. État de chargement (ex: le texte change pour "Envoi en cours...", une icône tournante apparaît, le bouton est désactivé).
+        3. État de succès (ex: le texte devient "Envoyé !", le bouton devient vert pendant 2 secondes, puis redevient normal).
+2. **Phase "Code" (15 min) :**
+    - Créez un fichier `index.html` avec un bouton.
+    - Créez un fichier `style.css` pour donner un style de base au bouton.
+    - Dans un fichier `script.js` :
+        - Ciblez le bouton avec `document.querySelector`.
+        - Ajoutez un écouteur d'événement au clic (`addEventListener`).
+        - Dans la fonction de clic :
+            - Désactivez immédiatement le bouton (`button.disabled = true;`).
+            - Changez son texte (`button.textContent = 'Envoi en cours...';`).
+            - Utilisez `setTimeout` pour simuler un temps de chargement de 2 secondes.
+            - Après ces 2 secondes :
+                - Changez le texte en "Envoyé !" et ajoutez une classe CSS pour le rendre vert.
+                - Utilisez un autre `setTimeout` de 2 secondes pour remettre le bouton à son état initial (texte et couleur) et le réactiver.
+
+**Ce que vous apprenez :**
+
+- **Penser à l'utilisateur :** Vous ne codez pas juste un bouton, vous concevez une expérience qui réduit la frustration.
+- **Gestion des états :** Vous manipulez l'état d'un élément de l'interface, une compétence fondamentale en front-end.
+- **Prototypage rapide :** En 20 minutes, vous avez résolu un problème d'UX courant.
+
+---
+
+### Kata 2 : Le "Générateur d'Idées Aléatoires" (Focus : API & Valeur immédiate)
+
+**Le Problème Produit :** Parfois, on manque d'inspiration pour une activité. Comment créer un outil ultra-simple qui propose une idée d'activité à faire quand on s'ennuie ?
+
+**Votre Mission :** Utiliser l'API gratuite "Bored API" pour afficher une nouvelle suggestion d'activité à chaque clic sur un bouton.
+
+**Étapes (25 minutes) :**
+
+1. **Phase "Exploration & Produit" (5 min) :**
+    - Allez sur le site de la **Bored API** (`boredapi.com`).
+    - Regardez la documentation. L'URL à utiliser est `https://www.boredapi.com/api/activity`. Ouvrez-la dans votre navigateur pour voir le format de la réponse (JSON).
+    - Décidez de la seule information que vous voulez afficher pour commencer : l'activité elle-même (la clé `"activity"` dans le JSON).
+2. **Phase "Code" (20 min) :**
+    - Créez un `index.html` avec un bouton "Trouver une idée" et un `<h1>` ou un `<p>` avec un id (ex: `id="idee"`).
+    - Dans votre `script.js` :
+        - Ciblez le bouton et l'élément de texte.
+        - Créez une fonction `async function recupererIdee() { ... }`.
+        - À l'intérieur, utilisez `fetch('https://www.boredapi.com/api/activity')` pour appeler l'API.
+        - Utilisez `.then(response => response.json())` pour convertir la réponse en JSON.
+        - Dans le `.then` suivant, récupérez la donnée (`data.activity`) et mettez-la dans le `textContent` de votre élément de texte.
+        - Ajoutez un écouteur d'événement sur le bouton qui appelle votre fonction `recupererIdee`.
+        - **Bonus :** Mettez un message de chargement dans le texte pendant que `fetch` travaille.
+
+**Ce que vous apprenez :**
+
+- **Intégrer une API :** Compétence essentielle pour connecter votre application au reste du monde.
+- **Créer de la valeur rapidement :** Vous n'avez pas eu à inventer les données, vous avez utilisé une ressource existante pour créer un produit fonctionnel en quelques minutes.
+- **Gestion de l'asynchrone :** `fetch` et `async/await` sont au cœur du JavaScript moderne.
+
+---
+
+### Kata 3 : Le "Validateur de Champ de Formulaire" (Focus : Prototypage & Logique métier)
+
+**Le Problème Produit :** Les utilisateurs font souvent des erreurs en remplissant des formulaires (ex: un nom d'utilisateur trop court). Comment leur donner un retour en temps réel pour qu'ils puissent corriger leur saisie immédiatement ?
+
+**Votre Mission :** Créer un champ de texte qui vérifie en direct si le nom d'utilisateur respecte une règle simple (ex: plus de 5 caractères) et affiche un message d'aide.
+
+**Étapes (20 minutes) :**
+
+1. **Phase "Règles métier & Design" (5 min) :**
+    - Définissez la règle : "Le nom d'utilisateur doit contenir au moins 6 caractères."
+    - Comment communiquer cette règle à l'utilisateur ?
+        - Un petit texte sous le champ de saisie.
+        - Initialement, il est gris.
+        - Si la règle n'est pas respectée, il passe au rouge.
+        - Si la règle est respectée, il passe au vert.
+2. **Phase "Code" (15 min) :**
+    - Dans `index.html`, créez un `<input type="text">` et un petit `<p>` juste en dessous pour le message d'aide.
+    - Dans `script.js` :
+        - Ciblez l'input et le paragraphe.
+        - Ajoutez un écouteur d'événement sur l'input, mais cette fois pour l'événement `"input"`. Cet événement se déclenche à chaque fois que l'utilisateur tape une lettre.
+        - Dans la fonction de l'événement :
+            - Récupérez la valeur actuelle de l'input (`input.value`).
+            - Vérifiez sa longueur (`input.value.length`).
+            - Utilisez une condition `if` :
+                - Si la longueur est inférieure à 6, changez le texte du paragraphe en "Au moins 6 caractères requis" et changez sa couleur en rouge (via une classe CSS).
+                - Sinon, changez le texte en "Nom d'utilisateur valide" et sa couleur en vert.
+
+**Ce que vous apprenez :**
+
+- **Logique métier :** Vous avez traduit une "règle business" en code.
+- **Feedback en temps réel :** Vous améliorez l'expérience en guidant l'utilisateur au lieu de le bloquer avec une erreur à la fin.
+- **Événements du DOM :** Vous utilisez un événement (`"input"`) plus adapté à ce cas d'usage que le simple `"click"`.
