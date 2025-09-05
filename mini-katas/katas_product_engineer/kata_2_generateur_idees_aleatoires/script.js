@@ -5,10 +5,8 @@ const corsProxy = "https://corsproxy.io/?";
 const apiURL = "https://bored-api.appbrewery.com";
 let dataActivity = "";
 
-
-
 // function recupererIdee() {
-//     fetch(`${corsProxy}${apiURL}/random`) 
+//     fetch(`${corsProxy}${apiURL}/random`)
 //         .then((response) => response.json())
 //         .then((data) => {
 //             console.log(data.activity)
@@ -22,19 +20,16 @@ let dataActivity = "";
 // console.log(dataActivity)
 
 async function recupererIdee() {
-    try {
-        const response = await fetch(`${corsProxy}${apiURL}/random`);
-        const data = await response.json();
-        return data.activity;
-    } catch (error) {
-        console.log("Erreur :", error);
-    }
+  try {
+    const response = await fetch(`${corsProxy}${apiURL}/random`);
+    const data = await response.json();
+    return data.activity;
+  } catch (error) {
+    console.log("Erreur :", error);
+  }
 }
 
-findIdeaButton.addEventListener("click", async() => {
-    const activity = await recupererIdee();
-    randomIdea.textContent = activity;
-})
-
-
-
+findIdeaButton.addEventListener("click", async () => {
+  const activity = await recupererIdee();
+  randomIdea.textContent = activity;
+});

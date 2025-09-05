@@ -12,6 +12,7 @@
         1. État initial (ex: "Envoyer ma demande")
         2. État de chargement (ex: le texte change pour "Envoi en cours...", une icône tournante apparaît, le bouton est désactivé).
         3. État de succès (ex: le texte devient "Envoyé !", le bouton devient vert pendant 2 secondes, puis redevient normal).
+
 2. **Phase "Code" (15 min) :**
     - Créez un fichier `index.html` avec un bouton.
     - Créez un fichier `style.css` pour donner un style de base au bouton.

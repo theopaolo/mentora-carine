@@ -1,8 +1,7 @@
 
 La théorie : https://theogoedert.notion.site/Guide-des-Patterns-d-Algorithmique-2003324cc3d78077ad41c1f0e4b843f0?source=copy_link
 
-
-Quiz structure de donnée 
+Quiz structure de donnée
 ## Instructions
 
 Pour chaque situation, choisis la structure de données ou la méthode la plus appropriée. Une seule réponse correcte par question.
@@ -21,11 +20,17 @@ Pour chaque situation, choisis la structure de données ou la méthode la plus a
 - b) Stack
 - c) Set
 
+Bonne réponse : b) Stack ✅
+Explication : Pour un système d'annulation, on utilise une pile (Stack) car on veut annuler les actions dans l'ordre inverse (LIFO - Last In, First Out).
+
 ### 3. **Tu dois associer chaque étudiant à sa note d'examen.**
 
 - a) Array
 - b) Set ✅​
 - c) Map
+
+Bonne réponse : c) Map ✅
+Explication : Pour associer des clés (étudiants) à des valeurs (notes), on utilise une Map, pas un Set qui ne stocke que des valeurs uniques.
 
 ### 4. **Tu veux garder seulement les nombres positifs d'un tableau.**
 
@@ -51,6 +56,9 @@ Pour chaque situation, choisis la structure de données ou la méthode la plus a
 - b) Set
 - c) Map
 
+Bonne réponse : b) Set ✅
+Explication : Pour garantir l'unicité des tags, un Set est plus approprié qu'un Array.
+
 ### 8. **Tu dois calculer la somme totale d'un tableau de nombres.**
 
 - a) .filter()
@@ -69,6 +77,9 @@ Pour chaque situation, choisis la structure de données ou la méthode la plus a
 - b) .map()
 - c) for...in
 
+Bonne réponse : b) .map() ✅
+Explication : Pour transformer chaque élément et créer un nouveau tableau, .map() est la méthode appropriée. .forEach() ne retourne rien.
+
 ### 11. **Tu dois détecter un cycle dans une liste chaînée.**
 
 - a) Set
@@ -80,6 +91,9 @@ Pour chaque situation, choisis la structure de données ou la méthode la plus a
 - a) Set
 - b) Array
 - c) Map
+
+Bonne réponse : c) Map ✅
+Explication : Pour associer des URLs (clés) à leurs réponses (valeurs), une Map est la structure idéale.
 
 ### 13. **Tu parcours un objet pour afficher toutes ses propriétés.**
 
@@ -98,3 +112,15 @@ Pour chaque situation, choisis la structure de données ou la méthode la plus a
 - a) Set
 - b) Stack
 - c) Object/Map ✅​
+
+
+----
+
+Hey ! Bien joué =D, 10/15 !
+
+Les erreurs à corriger sont :
+Question 2 → Stack (pour le système d'annulation)
+Question 3 → Map (pour associer étudiant-note)
+Question 7 → Set (pour les tags uniques)
+Question 10 → .map() (pour transformer un tableau)
+Question 12 → Map (pour le cache URL-réponse)
