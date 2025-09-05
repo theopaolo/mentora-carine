@@ -6,10 +6,9 @@ const apiURL = "https://bored-api.appbrewery.com";
 let dataActivity = "";
 
 
-
 // function recupererIdee() {
 //     fetch(`${corsProxy}${apiURL}/random`) 
-//         .then((response) => response.json())
+//         .then((response) => response.json()) // ça s'exécute en cascade
 //         .then((data) => {
 //             console.log(data.activity)
 //             randomIdea.textContent = data.activity;

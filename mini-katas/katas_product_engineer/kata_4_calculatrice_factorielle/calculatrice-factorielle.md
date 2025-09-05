@@ -1,12 +1,16 @@
 # KATA 2 : Calculatrice Factorielle Interactive (20min)
 ## Objectifs : Récursion, fonctions, conditions, boucles, localStorage (historique)
 
+
 ```javascript
 // Structure de base à compléter
 let history = [];
 
 // TODO 1 : Créer la fonction récursive factorielle
 function factorial(n) {
+  if(n <= 1) {
+    return 1
+  }
   // Cas de base : si n <= 1, retourner 1
   // Cas récursif : n * factorial(n-1)
   // Gérer les erreurs (nombres négatifs)
@@ -14,6 +18,7 @@ function factorial(n) {
 
 // TODO 2 : Créer une fonction pour calculer et stocker
 function calculate(number) {
+  factorial(number);
   // Appeler factorial(number)
   // Créer un objet résultat : { number, result, timestamp }
   // Ajouter à l'historique
