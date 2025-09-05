@@ -5,6 +5,7 @@ const corsProxy = "https://corsproxy.io/?";
 const apiURL = "https://bored-api.appbrewery.com";
 let dataActivity = "";
 
+
 // function recupererIdee() {
 //     fetch(`${corsProxy}${apiURL}/random`)
 //         .then((response) => response.json())
