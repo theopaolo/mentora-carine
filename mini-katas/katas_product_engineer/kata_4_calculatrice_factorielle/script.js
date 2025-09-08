@@ -4,6 +4,7 @@
 /* ressources:
     - https://fr.javascript.info/recursion
     - https://waytolearnx.com/2019/09/calculer-la-factorielle-dun-nombre-en-javascript.html
+    - https://factorial.fr/numero-fonction-factorielle
 */
 
 // Structure de base à compléter
@@ -11,18 +12,26 @@ let history = [];
 
 // TODO 1 : Créer la fonction récursive factorielle
 function factorial(n) {
+  
   if(n <= 1) {
     return 1
   }
+
   return n * factorial(n-1)
 
-  for (let index = 1; index < n; index++) {
-    
-  }
   // Cas de base : si n <= 1, retourner 1
   // Cas récursif : n * factorial(n-1)
   // Gérer les erreurs (nombres négatifs)
 }
+
+function factorialforloop(n) {
+  let factor = 1;
+  for ( let index = 1; index <= n; index++){ 
+    factor = factor * index;
+    console.log(factor);
+  }
+}
+
 
 // TODO 2 : Créer une fonction pour calculer et stocker
 function calculate(number) {
@@ -55,10 +64,12 @@ function findInHistory(searchNumber) {
 }
 
 // Tests à faire fonctionner :
-loadHistory();
-calculate(5);    // 120
-calculate(0);    // 1
-calculate(-1);   // Erreur
-calculate(7);    // 5040
-displayHistory();
-console.log(findInHistory(5)); // Doit trouver le résultat
+// loadHistory();
+// calculate(5);    // 120
+// calculate(0);    // 1
+// calculate(-1);   // Erreur
+// calculate(7);    // 5040
+// displayHistory();
+// console.log(findInHistory(5)); // Doit trouver le résultat
+
+console.log(factorialforloop(5)); // 120

@@ -7,29 +7,34 @@ let todos = [];
 
 // TODO 1 : Créer une fonction pour ajouter une tâche
 function addTodo(text) {
+    let id = todos.length + 1;
+    
     let todo = {
-        id: 1,
-        text: text,
-        done: false,
-        created_at: "12-05"
+      id: id,
+      text: text,
+      done: false,
+      created_at: new Date(-24 * 3600 * 1000),
     }
+
     todos.push(todo)
+    // console.log(id)
+    // console.log('length', todos.length)
+
     console.log(todos)
-  // Créer un objet todo avec : id, text, done, createdAt
+  
+    // Créer un objet todo avec : id, text, done, createdAt
   // L'ajouter au tableau todos
   // Sauvegarder dans localStorage
 }
 
 // TODO 2 : Créer une fonction pour marquer comme terminé
 function toggleTodo(id) {
-    const finish = todos.find((ID) => ID = id);
-    console.log(finish)
+    const todo = todos.find((ID) => ID = id);
+    console.log(todo)
 
-    for (let key of finish) {
-        finish[done] = true;
-    }
-    
+    todo.done = true;
 
+    // console.log(todos)
   // Trouver la tâche par son id
   // Inverser son statut done
   // Sauvegarder dans localStorage
@@ -55,8 +60,8 @@ function displayTodos() {
 }
 
 // Tests à faire fonctionner :
-loadTodos();
+// loadTodos();
 addTodo("Apprendre JavaScript");
 addTodo("Faire les courses");
 toggleTodo(1);
-displayTodos();
+// displayTodos();
